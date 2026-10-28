@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dynamic Form Builder</title><style>body{font:1rem system-ui;max-width:34rem;margin:2rem auto;padding:1rem}label{display:block;margin:.8rem 0}input{display:block;padding:.5rem;width:100%;box-sizing:border-box}</style></head><body><h1>Account details</h1><div id="mount"></div><pre id="output"></pre>
+
+<script>
+class FormBuilder{constructor(fields){this.fields=fields}mount(target){target.innerHTML=`<form id="dynamic">${this.fields.map((field,i)=>`<label>${field.label}<input type="${field.type}" name="field${i}" required></label>`).join("")}<button>Submit</button></form>`;target.querySelector("form").addEventListener("submit",e=>{e.preventDefault();document.querySelector("#output").textContent=JSON.stringify(this.getFormData(e.currentTarget),null,2)})}getFormData(form){return Object.fromEntries(new FormData(form))}}
+new FormBuilder([{type:"text",label:"Username"},{type:"email",label:"Email"}]).mount(document.querySelector("#mount"));
+</script>
+</body></html>

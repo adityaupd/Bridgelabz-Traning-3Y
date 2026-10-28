@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Student Registration Validation</title><style>body{font:1rem system-ui;max-width:32rem;margin:2rem auto;padding:1rem}label{display:block;margin:.8rem 0}.error{color:#b42318}.valid{border:2px solid #16803c}.invalid{border:2px solid #b42318}</style></head><body>
+<h1>Student registration</h1><form id="form" novalidate>
+<label>Name <input name="name" required></label><label>Email <input name="email" required></label><label>Phone <input name="phone" required></label><label>Password <input name="password" type="password" required></label>
+<button>Validate</button></form><p id="message" aria-live="polite"></p>
+
+<script>
+const form=document.querySelector("#form"), message=document.querySelector("#message");
+const rules={name:/^[A-Za-z ]+$/,email:/^[^\s@]+@[^\s@]+\.[^\s@]+$/,phone:/^\d{10}$/,password:/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/};
+form.addEventListener("submit",event=>{event.preventDefault();let valid=true;for(const [name,rule] of Object.entries(rules)){const input=form.elements[name],ok=rule.test(input.value);input.className=ok?"valid":"invalid";valid&&=ok;}message.textContent=valid?"Registration details are valid.":"Please correct the highlighted fields.";message.className=valid?"valid":"error";});
+</script>
+</body></html>

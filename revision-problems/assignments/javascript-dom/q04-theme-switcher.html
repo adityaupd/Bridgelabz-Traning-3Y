@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Theme Switcher</title><style>body{font:1rem system-ui;padding:2rem}body[data-theme="dark"]{background:#111827;color:#f9fafb}body[data-theme="blue"]{background:#dbeafe;color:#172554}</style></head><body data-theme="light"><h1>Choose a theme</h1><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button><button data-theme-choice="blue">Blue</button>
+<script>
+document.addEventListener("click",event=>{const choice=event.target.closest("[data-theme-choice]");if(!choice)return;document.body.setAttribute("data-theme",choice.dataset.themeChoice)});
+</script>
+</body></html>

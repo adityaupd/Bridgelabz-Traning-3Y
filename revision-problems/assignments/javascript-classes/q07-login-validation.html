@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Login Validation</title></head><body><h1>Sign in</h1><form id="login" novalidate><label>Username <input name="username" required></label><label>Password <input name="password" type="password" required></label><button>Sign in</button></form><p id="message" aria-live="polite"></p>
+<script>
+document.querySelector("#login").addEventListener("submit",e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.currentTarget));const errors=[];if(d.username.length<5)errors.push("Username needs at least 5 characters.");if(!/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).{8,}$/.test(d.password))errors.push("Password needs 8+ characters, uppercase, lowercase, number, and special character.");document.querySelector("#message").textContent=errors.join(" ")||"Login details are valid.";});
+</script>
+</body></html>

@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Character Counter</title><style>#counter{color:#14532d}#counter.warning{color:#a16207}#counter.full{color:#b91c1c}</style></head><body><h1>Message</h1><textarea id="text" maxlength="100" rows="5" cols="40" aria-describedby="counter"></textarea><p id="counter">100 characters remaining</p><button id="reset">Reset</button>
+<script>
+const field=document.querySelector("#text"),counter=document.querySelector("#counter");
+field.addEventListener("keydown",event=>{const editingKey=["Backspace","Delete","ArrowLeft","ArrowRight","Home","End","Tab"].includes(event.key)||event.ctrlKey||event.metaKey;if(field.value.length>=100&&!editingKey&&field.selectionStart===field.selectionEnd)event.preventDefault()});
+field.addEventListener("input",()=>{if(field.value.length>100)field.value=field.value.slice(0,100);const remaining=100-field.value.length;counter.textContent=`${remaining} characters remaining`;counter.className=remaining===0?"full":remaining<=20?"warning":""});document.querySelector("#reset").addEventListener("click",()=>{field.value="";field.dispatchEvent(new Event("input"))});
+</script>
+</body></html>

@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Student Table Filter</title></head><body><h1>Students</h1><label>Search <input id="search" type="search"></label><table><thead><tr><th>Name</th><th>Branch</th><th>CGPA</th></tr></thead><tbody id="rows"><tr><td>Meera</td><td>CSE</td><td>8.7</td></tr><tr><td>Arjun</td><td>ECE</td><td>8.2</td></tr><tr><td>Riya</td><td>CSE</td><td>9.1</td></tr></tbody></table><p id="empty" hidden>No results found.</p>
+<script>
+const rows=[...document.querySelectorAll("#rows tr")],empty=document.querySelector("#empty");document.querySelector("#search").addEventListener("input",e=>{const query=e.target.value.trim().toLowerCase();let visible=0;for(const row of rows){const match=row.textContent.toLowerCase().includes(query);row.hidden=!match;if(match)visible++}empty.hidden=visible>0});
+</script>
+</body></html>

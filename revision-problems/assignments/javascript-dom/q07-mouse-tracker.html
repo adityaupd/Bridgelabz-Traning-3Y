@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mouse Coordinates</title><style>#area{width:min(400px,90vw);height:min(400px,90vw);position:relative;background:#e0f2fe;border:1px solid #0284c7}.dot{position:absolute;width:12px;height:12px;border-radius:50%;background:#dc2626;transform:translate(-50%,-50%)}</style></head><body><h1>Pointer tracker</h1><div id="area" aria-label="Tracking area"></div><p id="coordinates">Move the pointer in the box.</p>
+<script>
+const area=document.querySelector("#area"),output=document.querySelector("#coordinates");area.addEventListener("mousemove",e=>output.textContent=`clientX: ${e.clientX}, clientY: ${e.clientY}`);area.addEventListener("dblclick",e=>{const bounds=area.getBoundingClientRect(),dot=document.createElement("span");dot.className="dot";dot.style.left=`${e.clientX-bounds.left}px`;dot.style.top=`${e.clientY-bounds.top}px`;area.append(dot)});
+</script>
+</body></html>

@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Image Gallery Modal</title><style>.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem}.gallery img{width:100%;cursor:pointer}.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center}.modal[hidden]{display:none}.modal img{max-width:90vw;max-height:85vh}</style></head><body><h1>Gallery</h1><div class="gallery" id="gallery"></div><div class="modal" id="modal" hidden><img alt="Preview"></div>
+<script>
+const gallery=document.querySelector("#gallery"),modal=document.querySelector("#modal"),preview=modal.querySelector("img");for(let i=1;i<=6;i++){const image=document.createElement("img");image.src=`https://picsum.photos/seed/gallery-${i}/400/260`;image.alt=`Gallery image ${i}`;gallery.append(image)}gallery.addEventListener("click",e=>{if(e.target.matches("img")){preview.src=e.target.src;preview.alt=e.target.alt;modal.hidden=false}});modal.addEventListener("click",()=>modal.hidden=true);preview.addEventListener("click",e=>e.stopPropagation());
+</script>
+</body></html>

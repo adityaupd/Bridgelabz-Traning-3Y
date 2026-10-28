@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Movie Ticket Booking</title></head><body><h1>Book movie tickets</h1><form id="booking" novalidate><label>Name <input name="name" required></label><label>Email <input name="email" type="email" required></label><label>Seats <input name="seats" type="number" min="1" max="10" required></label><button>Book</button></form><p id="message" aria-live="polite"></p>
+<script>
+const form=document.querySelector("#booking"),message=document.querySelector("#message");form.addEventListener("submit",e=>{e.preventDefault();const data=Object.fromEntries(new FormData(form));const valid=/^[A-Za-z ]+$/.test(data.name)&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)&&Number(data.seats)>=1&&Number(data.seats)<=10;message.textContent=valid?`Ticket: ${data.name}, ${data.seats} seat(s), ${data.email}`:"Enter a valid name, email, and 1-10 seats.";});
+</script>
+</body></html>
