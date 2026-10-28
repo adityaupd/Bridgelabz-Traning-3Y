@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Submit a Message</title></head><body><h1>Submit</h1><form action="#submitted" method="get" target="result-frame"><label>Message <input name="message" required></label><button type="submit">Submit</button></form><iframe name="result-frame" title="Submission result" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;body&gt;&lt;p&gt;Form successfully submitted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" width="400" height="120"></iframe>
+<script>
+document.querySelector('form').addEventListener('submit', event => {
+  event.preventDefault();
+  const message = document.querySelector('[name="message"]').value;
+  const escapeHtml = value => value.replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[character]));
+  document.querySelector('iframe[name="result-frame"]').srcdoc =
+    `<!doctype html><html lang="en"><body><p>Form successfully submitted.</p><p>${escapeHtml(message)}</p></body></html>`;
+});
+</script>
+</body></html>
