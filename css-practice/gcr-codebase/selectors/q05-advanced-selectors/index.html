@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Advanced Selectors</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:2rem;font:1rem/1.6 system-ui,sans-serif;color:#172033;background:#f1f5f9}header,main,footer{max-width:1050px;margin:1rem auto}header,footer{padding:1rem;background:#0f172a;color:#fff}main{padding:1rem}h1{margin-top:0}section,article,.box,figure{padding:1rem;background:#fff;border-radius:.75rem}a{color:#075985}button,input,textarea{font:inherit;padding:.6rem;border:1px solid #94a3b8;border-radius:.4rem}button{cursor:pointer;background:#e0f2fe}img{max-width:100%;border-radius:.6rem}nav{display:flex;gap:1rem;flex-wrap:wrap}ul{padding-left:1.3rem}.selector-demo>ul{border-left:4px solid #2563eb}.selector-demo li:nth-child(2){background:#fef3c7}.selector-demo input[type="text"]{padding:.7rem}.selector-demo input:focus{outline:3px solid #38bdf8}.selector-demo a[href^="https"]{font-weight:700}.selector-demo .lead+p{color:#475569}.selector-demo .lead~.note::after{content:" (selected by sibling selector)"}.selector-demo li::before{content:"• ";color:#7c3aed}
+/* Attribute selectors target type and URL prefix. */
+/* :focus and :nth-child are pseudo-classes; ::before and ::after are pseudo-elements. */
+/* > is child, + adjacent sibling, ~ general sibling, and a space is descendant. */
+</style>
+</head><body><header><p>Css Box Model Practice</p></header><h1>Selector Practice</h1><main class="selector-demo"><p class="lead">Attribute, state, and relationship selectors.</p><ul><li>First item</li><li>Second item</li><li>Third item</li></ul><label>Try focus <input type="text" placeholder="Type here"></label><p><a href="https://example.com">Secure example link</a></p><p class="note">Related sibling</p></main><footer>© 2026 Aditya Upadhyay</footer></body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    
+<style>
+/* Q8: Dashboard using positioning and flexbox */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 4.5rem;
+    padding: 1rem 2rem;
+    background-color: #0f172a;
+    color: #ffffff;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header h1,
+.dashboard-header p {
+    margin: 0;
+}
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 4.5rem;
+}
+
+.sidebar {
+    width: 15rem;
+    min-height: calc(100vh - 4.5rem);
+    padding: 2rem 1rem;
+    background-color: #1e293b;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sidebar a {
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #334155;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.content-box {
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.4rem 1rem rgba(15, 23, 42, 0.1);
+}
+
+@media (max-width: 650px) {
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        margin-top: 0;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+</style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Student Dashboard</h1>
+        <p>Welcome back!</p>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <nav aria-label="Dashboard navigation">
+                <a href="#overview">Overview</a>
+                <a href="#courses">Courses</a>
+                <a href="#tasks">Tasks</a>
+                <a href="#settings">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <section id="overview" class="content-box">
+                <h2>Overview</h2>
+                <p>You have completed 72% of your current learning plan.</p>
+            </section>
+
+            <section id="courses" class="content-box">
+                <h2>Courses</h2>
+                <p>Data Structures, Web Development and Database Systems are currently active.</p>
+            </section>
+
+            <section id="tasks" class="content-box">
+                <h2>Tasks</h2>
+                <p>Three assignments are scheduled for completion this week.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
